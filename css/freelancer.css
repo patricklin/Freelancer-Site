@@ -180,8 +180,8 @@ section h2 {
 }
 
 section.success {
-    color: #fff;
-    background: #18bc9c;
+    color: #18bc9c;
+    background: #fff;
 }
 
 @media(max-width:767px) {
@@ -244,6 +244,11 @@ section.success {
 #portfolio * {
     z-index: 2;
 }
+
+/*
+#portfolio {
+    background-color: #18bc9c;
+}*/
 
 @media(min-width:767px) {
     #portfolio .portfolio-item {
