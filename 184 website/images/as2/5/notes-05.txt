@@ -1,0 +1,8 @@
+raytracer.exe input-05.txt
+
+runtime: 1 minute 12 seconds
+
+features:
+	-all types of lighting
+	-ambient, diffuse, specular shading
+	-parsing obj file

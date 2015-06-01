@@ -1,0 +1,9 @@
+raytracer.exe input-03.txt
+
+runtime: .77 seconds
+
+features:
+	-all types of lighting
+	-ambient, diffuse, specular shading
+	-reflection
+	-transformation

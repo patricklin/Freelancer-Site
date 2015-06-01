@@ -1,0 +1,80 @@
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>cs184-dv</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+		
+		<div class="container">
+			<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">Assignment 1
+				<a href="index.html" style="padding-left:500px"> Home </a>
+			</h1>				<hr />
+				<p> Phong Shading Model assignment by Kevin Hui and Patrick Lin</p>
+			</div>
+			<div class="one-third column">
+				<h3>Images</h3>
+				<img src="images/as1/diffuse.jpg" width=300px height=300px style="padding-bottom:1px">
+				<img src="images/as1/SpecularDirectional.jpg" width=300px height=300px style="padding-bottom:1px">
+				<img src="images/as1/Specular.jpg" width=300px height=300px>
+				<img src="images/as1/specular and diffuse.jpg" width=300px height=300px style="padding-bottom:1px">
+				<img src="images/as1/multilights.jpg" width=300px height=300px>
+			</div>
+			
+			<div class="half column">
+				<h3>Description</h3>
+				<h4>1) Diffuse Only, Point Light </h4>
+				-pl 20 20 20 0.6 0.6 0.6 -kd 0.5 1 0.5
+				<h4 style="padding-top:250px">2) Specular Only, Directional Light</h4>
+				-dl 20 20 20 0.6 0.6 0.6 -ks 0.4 0.6 0.8 -sp 16
+				<h4 style="padding-top:245px">3) Specular Only, Point Light</h4>
+				-pl 20 20 20 0.6 0.6 0.6 -ks 0.4 0.6 0.8 -sp 16
+				<h4 style="padding-top:245px">4) Specular and Diffuse Shading</h4>
+				-pl 200 200 200 0.4 0.4 0.4 -dl 0 1 -1 1 0.6 0.6 -kd 1 1 0 -ka 0.1 0.1 0 -ks 0.8 0.8 0.8 -sp 16
+				<h4 style="padding-top:235px">5) Multiple Light Sources</h4>
+				-pl -6 8 10 1 0 1 -pl -15 -15 5 0 1 0 -pl 10 10 -10 0 0 0 -pl 3 -4 8 0 0 1 -pl 10 20 3 0 1 1 -ka 0.05 0.05 0.05 -kd 0.1 0.1 0.1 -ks 0.5 0.5 0.5 -sp 4
+			</div>
+
+
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
