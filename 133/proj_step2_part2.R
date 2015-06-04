@@ -1,0 +1,49 @@
+bmeta = read.table("http://www.stat.berkeley.edu/users/nolan/data/Project2012/census2010/B01_metadata.txt", sep = "\n")
+bcsv = read.csv("http://www.stat.berkeley.edu/users/nolan/data/Project2012/census2010/B01003.csv")
+
+dp2meta = read.table("http://www.stat.berkeley.edu/users/nolan/data/Project2012/census2010/DP02_metadata.txt", sep = "\n")
+dp2csv = read.csv("http://www.stat.berkeley.edu/users/nolan/data/Project2012/census2010/DP02.csv")
+
+dp3meta = read.table("http://www.stat.berkeley.edu/users/nolan/data/Project2012/census2010/DP03_metadata.txt", sep = "\n")
+dp3csv = read.csv("http://www.stat.berkeley.edu/users/nolan/data/Project2012/census2010/DP03.csv")
+
+# Renaming csv columns with meta-data column names
+newNames1 = c()
+for (i in 1:7) {
+  label = as.character(bmeta[[1]][i])
+  splits = strsplit(label, ",")
+  newNames1 = c(newNames1, splits[[1]][2])
+}
+
+newNames1[4] = "Id3"
+colnames(bcsv) = newNames1
+
+# Renaming csv columns with meta-data column names
+newNames2 = c()
+for (i in 1:nrow(dp2meta)) {
+  label = as.character(dp2meta[[1]][i])
+  splits = strsplit(label, ",")
+  newNames2 = c(newNames2, splits[[1]][2])
+}
+
+newNames2[4] = "Id3"
+colnames(dp2csv) = newNames2
+
+# Renaming csv columns with meta-data column names
+newNames3 = c()
+for (i in 1:nrow(dp3meta)) {
+  label = as.character(dp3meta[[1]][i])
+  splits = strsplit(label, ",")
+  newNames3 = c(newNames3, splits[[1]][2])
+}
+
+newNames3[4] = "Id3"
+colnames(dp3csv) = newNames3
+
+# merging socioeconomic csv together
+dp = merge(dp2csv, dp3csv, by = "Id2")
+# merge socioeconomic with county
+withoutcounty = gsub( " County", "", bcsv[,3])
+bcsv[,3] = withoutcounty
+result = merge(bcsv, dp)
+colnames(result)[3] = "County"

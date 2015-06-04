@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Stat 133 Fall 2014; Final Project</title>
+
+  <style type="text/css">
+  h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif;
+    color: purple; }
+  h2 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif;
+    font-size: 90%; }
+  figcaption {
+    font-style: italic;
+    font-size: 80%;
+}
+  </style>
+<style type="text/css"></style></head>
+
+<body>
+<h1>Election Plots</h1>
+<h2>Jason Zhang, Jeremy Young, Michael Tran, Patrick Lin</h2>
+
+<p>The original 10 variables we trained and tested our predictors on were:
+  <ul>
+     <li>"Percent; HOUSEHOLDS BY TYPE - Households with one or more people 65 years and over",</li>
+     <li>"Estimate; HOUSEHOLDS BY TYPE - Average family size",  </li>
+     <li>"Percent; MARITAL STATUS - Divorced",  </li>
+     <li>"Percent; EDUCATIONAL ATTAINMENT - Some college",</li>
+     <li>"Percent; EMPLOYMENT STATUS - Percent Unemployed",</li>
+     <li>"Percent; HOUSEHOLDS BY TYPE - Households with one or more people under 18 years",</li>
+     <li>"Percent; INDUSTRY - Agriculture",  </li>
+     <li>"Percent; INDUSTRY - Professional",   </li>
+     <li>"Estimate; INCOME AND BENEFITS (IN 2010 INFLATION-ADJUSTED DOLLARS) - Median household income (dollars)",</li>
+     <li>"Percent; PERCENTAGE OF FAMILIES AND PEOPLE WHOSE INCOME IN THE PAST 12 MONTHS IS BELOW THE POVERTY LEVEL - All families",</li>
+  </ul>
+  These were all chosen somewhat arbitrarily as conditions we thought would affect election rates or were interesting to observe. We later added five more variables to test our recursive partitioning model:
+    <ul>
+     <li>"Estimate; HOUSEHOLDS BY TYPE - Nonfamily households",</li>
+     <li>"Estimate; HOUSEHOLDS BY TYPE - Average household size",</li>
+     <li>"Estimate; MARITAL STATUS - Never married",</li>
+     <li>"Estimate; HOUSEHOLDS BY TYPE - Nonfamily households - Householder living alone",</li>
+     <li>"Estimate; HOUSEHOLDS BY TYPE - Family households (families) - Female householder"</li>
+  </ul>
+   </p>
+<hr>
+<h2>3A Plot</h2>
+
+<figure align="center">
+<img src="3a_classification_tree.png">
+<figcaption>Classification tree built by post() from the RPart library with the original 10 variables. </figcaption>
+</figure>
+
+<figure align="center">
+<img src="3a_classification_tree2.png">
+<figcaption>Classification tree built by RPart() with all 15 variables. The very bottom of the plot was generated slightly cropped. </figcaption>
+</figure>
+
+<hr>
+<h2>4A Plot 1</h2>
+
+<figure align="center">
+<img src="4a_incorrect_county_prediction.png">
+<figcaption>Map of the 294 counties that were incorrectly predicted by both our KNN and RPart predictors on 10 variables. The KNN predictor alone incorrectly predicted the outcome for 390 counties while the RPart got 521 wrong, so there was substantial overlap in incorrect predictions. These could possibly be counties that voted differently enough in the 2004 and 2012 elections for both our predictors to be incorrect, or were affected more by other variables that we did not account for. </figcaption>
+</figure>
+
+<hr>
+<h2>4A Plot 2</h2>
+<figure align="center">
+<img src="4a_misclass_knn.jpeg">
+<figcaption>KNN error rates on the original 10 variables for various values of k. </figcaption>
+</figure>
+
+<hr>
+<h2>4A Plot 3</h2>
+<figure align="center">
+<img src="4a_multi_rpart.jpeg">
+<figcaption>RPart correct classification rate with 1, 2, 3... up to 15 variables. Variables were included in order of importance from analyzing the 2004 data given by summary() in the RPart library. This order however does not apply perfectly to the 2012 predictions, however, otherwise the greatest increases in classification rate would be seen with the first few variables. In fact, the classification rate goes down on the tenth variable, which corresponds to "Percent; INDUSTRY - Agriculture". Even so, the general trend is that our predictor is more accurate when given more variables.
+</figcaption>
+</figure>
+
+<hr>
+
+<h2>4B Fancy Map</h2>
+
+<figure align="center">
+<img src="4b_map.png">
+<figcaption>Party vote shift from '04 to '12 election. Arrows signify an increase in voting percentage from '04 to '12, with red corresponding to Republicans and blue to Democrats. The biggest increases are in the South, where we see the Democrats gaining in the Southeastern states and the Republicans winning more voters in the region around the Appalachian states, AR, and eastern TX.  </figcaption>
+</figure>
+
+
+<address></address>
+
+
+</body></html>
